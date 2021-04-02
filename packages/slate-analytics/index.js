@@ -60,39 +60,7 @@ async function init() {
 }
 
 function event(name, payload = {}) {
-  const config = rc.get();
-
-  if (!config.tracking) {
-    return Promise.resolve();
-  }
-
-  process.env.SLATE_PROCESS_ID =
-    process.env.SLATE_PROCESS_ID || uuidGenerator();
-
-  const axiosConfig = {
-    params: Object.assign({}, payload, {
-      event: name,
-      id: process.env.SLATE_PROCESS_ID,
-      uuid: config.uuid,
-      performance: process.hrtime(),
-    }),
-  };
-
-  if (process.env.NODE_ENV === 'test') {
-    axiosConfig.adaptor = (settings) => {
-      return new Promise((resolve) => {
-        return resolve({
-          data: {},
-          status: 200,
-          statusText: 'Sucess',
-          headers: {},
-          settings,
-        });
-      });
-    };
-  }
-
-  return axios('https://v.shopify.com/slate/track', axiosConfig);
+  return Promise.resolve();
 }
 
 module.exports = {
