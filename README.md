@@ -86,9 +86,7 @@ Everything up-to-date
 ```
 
 ### 5. Package the individual tarballs with `npm pack` (for any updated packages)
-First, modify the `@shopify/slate-sync` dependency version within slate tools to be that tarball url that will be generated as part of our release. This will take the form of `https://github.com/thecitizenry/slate/releases/download/v1.0.1/shopify-slate-sync-1.0.1.tgz` where the version number is the git tag / version we are about to release.
-
-> Explanation for above^: Since `@shopify/slate-sync` will only be referenced by its remote tarball within both `slate-tools`'s and our main Shopify codebase's package.json, the dependency graph within Node will not guarantee that our Shopify codebase's dependency is loaded first, which will result in `No matching version found for @shopify/slate-sync@1.0.1.` when attempting an npm install. This solves that issue by always referencing the tarball in both places, even through it won't exist until we actually cut the github release.
+Run npm pack for both the `slate-tools` and `slate-sync` packages.
 
 .eg.
 ```
