@@ -27,4 +27,6 @@ webpack(webpackConfig, (err, stats) => {
   console.log('');
 
   if (stats.compilation.errors.length) process.exit(1);
+
+  process.exit();
 });
