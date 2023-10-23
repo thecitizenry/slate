@@ -34,7 +34,6 @@ const cssLoader = {
 const postcssLoader = {
   loader: 'postcss-loader',
   options: {
-    ident: 'postcss',
     sourceMap: !isDev,
     plugins: config.get('webpack.postcss.plugins'),
   },
