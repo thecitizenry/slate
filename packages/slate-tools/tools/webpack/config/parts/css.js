@@ -48,8 +48,7 @@ const postcssLoader = {
 };
 
 cssRule.use = [
-  ...(isDev ? [] : [MiniCssExtractPlugin.loader]),
-  vueStyleLoader,
+  ...(isDev ? [vueStyleLoader] : [MiniCssExtractPlugin.loader]),
   cssLoader,
   postcssLoader,
 ];
