@@ -17,9 +17,6 @@ const cssRule = {
 
 const styleLoader = {
   loader: 'style-loader',
-  options: {
-    hmr: isDev,
-  },
 };
 
 const cssLoader = {
