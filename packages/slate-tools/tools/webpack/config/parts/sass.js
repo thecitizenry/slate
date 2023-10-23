@@ -39,7 +39,7 @@ const postcssLoader = {
   },
 };
 
-const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
+// const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
 
 const sassLoader = {
   loader: 'sass-loader',
@@ -52,7 +52,7 @@ const sassLoader = {
 };
 
 sassRule.use = [
-  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader, cssVarLoader]),
+  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
   cssLoader,
   postcssLoader,
   sassLoader,

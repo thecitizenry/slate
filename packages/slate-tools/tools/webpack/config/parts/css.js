@@ -34,16 +34,16 @@ const cssLoader = {
 const postcssLoader = {
   loader: 'postcss-loader',
   options: {
-    ident: 'postcss',
+    // ident: 'postcss',
     sourceMap: !isDev,
     plugins: config.get('webpack.postcss.plugins'),
   },
 };
 
-const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
+// const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
 
 cssRule.use = [
-  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader, cssVarLoader]),
+  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
   cssLoader,
   postcssLoader,
 ];
