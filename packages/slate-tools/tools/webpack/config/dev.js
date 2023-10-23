@@ -27,6 +27,7 @@ module.exports = merge([
   core,
   entry,
   babel,
+  sass,
   css,
   {
     mode: 'development',
