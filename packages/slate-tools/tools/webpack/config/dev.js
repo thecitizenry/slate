@@ -8,7 +8,7 @@ const SlateConfig = require('@shopify/slate-config');
 const core = require('./parts/core');
 const babel = require('./parts/babel');
 const entry = require('./parts/entry');
-// const sass = require('./parts/sass');
+const sass = require('./parts/sass');
 const css = require('./parts/css');
 
 const getLayoutEntrypoints = require('./utilities/get-layout-entrypoints');
