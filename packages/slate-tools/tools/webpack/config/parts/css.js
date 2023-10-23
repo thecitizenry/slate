@@ -48,8 +48,8 @@ const postcssLoader = {
 // const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
 
 cssRule.use = [
-  vueStyleLoader,
   ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
+  vueStyleLoader,
   cssLoader,
   postcssLoader,
 ];
