@@ -19,6 +19,10 @@ const styleLoader = {
   loader: 'style-loader',
 };
 
+const vueStyleLoader = {
+  loader: 'vue-style-loader',
+}
+
 const cssLoader = {
   loader: 'css-loader',
   options: {
@@ -37,8 +41,6 @@ const postcssLoader = {
   },
 };
 
-// const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
-
 const sassLoader = {
   loader: 'sass-loader',
   options: {
@@ -50,8 +52,8 @@ const sassLoader = {
 };
 
 sassRule.use = [
-  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
-  cssLoader,
+  ...(isDev ? [] : [MiniCssExtractPlugin.loader]),
+  vueStyleLoader,
   postcssLoader,
   sassLoader,
 ];

@@ -31,7 +31,9 @@ const cssLoader = {
   // the DOM for styles (width, height, visibility) on page load.
   options: {
     sourceMap: !isDev,
-    modules: true,
+    modules: {
+      localIdentName: '[local]_[hash:base64:8]',
+    },
   },
 };
 
@@ -45,10 +47,8 @@ const postcssLoader = {
   },
 };
 
-// const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
-
 cssRule.use = [
-  // ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
+  ...(isDev ? [] : [MiniCssExtractPlugin.loader]),
   vueStyleLoader,
   cssLoader,
   postcssLoader,
