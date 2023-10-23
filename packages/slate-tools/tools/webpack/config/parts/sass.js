@@ -19,10 +19,6 @@ const styleLoader = {
   loader: 'style-loader',
 };
 
-const vueStyleLoader = {
-  loader: 'vue-style-loader',
-}
-
 const cssLoader = {
   loader: 'css-loader',
   options: {
@@ -52,8 +48,8 @@ const sassLoader = {
 };
 
 sassRule.use = [
-  ...(isDev ? [] : [MiniCssExtractPlugin.loader]),
-  vueStyleLoader,
+  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
+  cssLoader,
   postcssLoader,
   sassLoader,
 ];
