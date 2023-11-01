@@ -17,9 +17,6 @@ const sassRule = {
 
 const styleLoader = {
   loader: 'style-loader',
-  options: {
-    hmr: isDev,
-  },
 };
 
 const cssLoader = {
@@ -33,13 +30,12 @@ const cssLoader = {
 const postcssLoader = {
   loader: 'postcss-loader',
   options: {
-    ident: 'postcss',
     sourceMap: config.get('webpack.sourceMap.styles'),
-    plugins: config.get('webpack.postcss.plugins'),
+    postcssOptions: {
+      plugins: config.get('webpack.postcss.plugins'),
+    }
   },
 };
-
-const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
 
 const sassLoader = {
   loader: 'sass-loader',
@@ -52,7 +48,7 @@ const sassLoader = {
 };
 
 sassRule.use = [
-  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader, cssVarLoader]),
+  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader]),
   cssLoader,
   postcssLoader,
   sassLoader,

@@ -15,11 +15,8 @@ const cssRule = {
   test: /\.css$/,
 };
 
-const styleLoader = {
-  loader: 'style-loader',
-  options: {
-    hmr: isDev,
-  },
+const vueStyleLoader = {
+  loader: 'vue-style-loader',
 };
 
 const cssLoader = {
@@ -28,22 +25,26 @@ const cssLoader = {
   // styles using a <link> tag instead of <style> tag. This causes
   // a FOUC content, which can cause issues with JS that is reading
   // the DOM for styles (width, height, visibility) on page load.
-  options: {sourceMap: !isDev},
+  options: {
+    sourceMap: !isDev,
+    modules: {
+      localIdentName: '[local]_[hash:base64:8]',
+    },
+  },
 };
 
 const postcssLoader = {
   loader: 'postcss-loader',
   options: {
-    ident: 'postcss',
     sourceMap: !isDev,
-    plugins: config.get('webpack.postcss.plugins'),
+    postcssOptions: {
+      plugins: config.get('webpack.postcss.plugins'),
+    },
   },
 };
 
-const cssVarLoader = {loader: '@shopify/slate-cssvar-loader'};
-
 cssRule.use = [
-  ...(isDev ? [styleLoader] : [MiniCssExtractPlugin.loader, cssVarLoader]),
+  ...(isDev ? [vueStyleLoader] : [MiniCssExtractPlugin.loader]),
   cssLoader,
   postcssLoader,
 ];
