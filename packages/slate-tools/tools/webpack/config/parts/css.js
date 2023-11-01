@@ -15,13 +15,9 @@ const cssRule = {
   test: /\.css$/,
 };
 
-const styleLoader = {
-  loader: 'style-loader',
-};
-
 const vueStyleLoader = {
   loader: 'vue-style-loader',
-}
+};
 
 const cssLoader = {
   loader: 'css-loader',
@@ -43,7 +39,7 @@ const postcssLoader = {
     sourceMap: !isDev,
     postcssOptions: {
       plugins: config.get('webpack.postcss.plugins'),
-    }
+    },
   },
 };
 
