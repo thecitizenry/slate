@@ -95,6 +95,8 @@ function onCompilerDone(stats) {
     statsJson.errors.forEach((message) => {
       console.log(`${message}\n`);
     });
+
+    process.exit(0);
   }
 
   if (statsJson.warnings.length) {
