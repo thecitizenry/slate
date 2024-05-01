@@ -7,10 +7,11 @@ const part = {module: {rules: []}};
 
 const babelLoader = {
   test: /\.js$/,
-  exclude: config.get('webpack.babel.exclude'),
+  exclude: /node_modules\/(?!(@builder.io\/sdk-vue)\/).*/,
   loader: 'babel-loader',
   options: {
-    babelrc: false,
+    presets: [['@babel/preset-env', { targets: "defaults" }]],
+    plugins: ['@babel/plugin-transform-nullish-coalescing-operator'],
     extends: config.get('webpack.babel.configPath'),
   },
 };
