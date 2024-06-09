@@ -1,6 +1,6 @@
 {
   "name": "@shopify/slate-tools",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A modern development toolkit for Shopify themes",
   "repository": "https://github.com/Shopify/slate/tree/1.x/packages/slate-tools",
   "license": "MIT",
@@ -75,6 +75,7 @@
     "stylelint": "^9.1.2",
     "stylelint-webpack-plugin": "^0.10.1",
     "tapable": "^1.0.0",
+    "terser-webpack-plugin": "4.2.3",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "uuid": "^3.2.1",
     "vue-style-loader": "^4.1.3",
