@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const SlateConfig = require('@shopify/slate-config');
 const SlateTagPlugin = require('@shopify/slate-tag-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const babel = require('./parts/babel');
 const sass = require('./parts/sass');
@@ -39,9 +39,7 @@ module.exports = merge([
         'process.env': {NODE_ENV: '"production"'},
       }),
 
-      new UglifyJSPlugin({
-        sourceMap: true,
-      }),
+      new TerserPlugin(),
 
       // generate dist/layout/*.liquid for all layout files with correct paths to assets
 

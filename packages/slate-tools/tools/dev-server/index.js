@@ -33,6 +33,11 @@ class DevServer {
           function(proxyRes) {
             // disable HSTS. Slate might force us to use HTTPS but having HSTS on local dev makes it impossible to do other non-Slate dev.
             delete proxyRes.headers['strict-transport-security'];
+            proxyRes.headers['x-frame-options'] =
+              'https://localhost:3000/ https://builder.io/ https://the-citizenry.com/';
+            proxyRes.headers[
+              'content-security-policy'
+            ] = `frame-ancestors 'self' https://localhost:3000/ https://builder.io/ https://the-citizenry.com/; upgrade-insecure-requests;`;
           },
         ],
       },

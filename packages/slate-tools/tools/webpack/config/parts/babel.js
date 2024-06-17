@@ -7,10 +7,14 @@ const part = {module: {rules: []}};
 
 const babelLoader = {
   test: /\.js$/,
-  exclude: /node_modules\/(?!(@builder.io\/sdk-vue)\/).*/,
   loader: 'babel-loader',
   options: {
-    presets: [['@babel/preset-env', { targets: "defaults" }]],
+    presets: [
+      [
+        '@babel/preset-env',
+        {targets: '> 0.25%, not dead', useBuiltIns: 'entry', corejs: '3'},
+      ],
+    ],
     plugins: ['@babel/plugin-transform-nullish-coalescing-operator'],
     extends: config.get('webpack.babel.configPath'),
   },
