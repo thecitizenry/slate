@@ -37,6 +37,7 @@
     "concat-style-loader": "1.0.0-beta.14",
     "console-control-strings": "^1.1.0",
     "copy-webpack-plugin": "^4.2.3",
+    "core-js": "^3.37.1",
     "cors": "^2.8.4",
     "cross-spawn": "5.1.0",
     "css-loader": "^5.2.7",
